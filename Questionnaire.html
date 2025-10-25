@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Study Participation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .loading {
+            display: none;
+            margin-top: 20px;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Research Study Participation</h1>
+        <p>Thank you for your interest in participating in our academic research! After clicking the button below, you will be randomly assigned to complete one of two questionnaire versions.</p >
+        <p>Both questionnaires cover similar topics but present questions in different formats. Your participation is extremely valuable to our study.</p >
+        <p><strong>Please note:</strong> This is a randomized controlled study, so you cannot choose which questionnaire to complete. The system will make this assignment randomly.</p >
+        
+        <button class="button" onclick="assignQuestionnaire()">Start Random Assignment</button>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Assigning you to a questionnaire randomly...</p >
+        </div>
+    </div>
+
+    <script>
+        function assignQuestionnaire() {
+            // Show loading animation
+            document.getElementById('loading').style.display = 'block';
+            
+            // Replace with your actual questionnaire URLs
+            const questionnaireA = 'https://www.wjx.cn/vm/tTvHo41.aspx#';
+            const questionnaireB = 'https://www.wjx.cn/vm/Ym3pbu8.aspx#';
+            
+            // Random assignment (50% probability each)
+            setTimeout(function() {
+                const random = Math.random();
+                if (random < 0.5) {
+                    window.location.href = questionnaireA;
+                } else {
+                    window.location.href = questionnaireB;
+                }
+            }, 1500); // 1.5 second delay to let users see the loading effect
+        }
+    </script>
+</body>
+</html>
